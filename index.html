@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>World Mission Cultural Day – Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hc">
+    <span class="globe">🌍</span>
+    <p class="hpre">Welcome to</p>
+    <h1 class="htitle">World Mission<br/><span>Cultural Day</span></h1>
+    <p class="hsub">Celebrating Unity in Diversity — Register Your Participation</p>
+    <div class="flags">🇰🇷 🇳🇬 🇧🇷 🇮🇳 🇫🇷 🇯🇵 🇲🇽 🇬🇭 🇺🇸 🇿🇦 🇨🇳 🇪🇹</div>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabs">
+  <button class="tbtn active" data-tab="register">📋 Register</button>
+  <button class="tbtn" data-tab="participants">👥 Participants <span class="badge" id="badge">0</span></button>
+</nav>
+
+<main class="wrap">
+
+  <!-- ═══ REGISTER PANEL ═══ -->
+  <section id="panel-register" class="panel active">
+
+    <!-- Success banner -->
+    <div class="sb" id="sb"><span id="sbMsg"></span></div>
+
+    <div class="card">
+      <div class="ch">
+        <h2>Event Registration</h2>
+        <p>All fields marked <strong>*</strong> are required.</p>
+      </div>
+      <form id="regForm" novalidate>
+
+        <div class="row">
+          <div class="fg">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" placeholder="e.g. Amara Osei"/>
+            <span class="em" id="e-fullName"></span>
+          </div>
+          <div class="fg">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="you@example.com"/>
+            <span class="em" id="e-email"></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="fg">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="+250 700 000 000"/>
+            <span class="em" id="e-phone"></span>
+          </div>
+          <div class="fg">
+            <label for="country">Country / Culture <span class="req">*</span></label>
+            <input type="text" id="country" placeholder="e.g. Rwanda, Japan, Brazil…"/>
+            <span class="em" id="e-country"></span>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Gender <span class="req">*</span></label>
+          <div class="radios">
+            <label class="ro"><input type="radio" name="gender" value="Male"/> Male</label>
+            <label class="ro"><input type="radio" name="gender" value="Female"/> Female</label>
+            <label class="ro"><input type="radio" name="gender" value="Other"/> Other</label>
+            <label class="ro"><input type="radio" name="gender" value="Prefer not to say"/> Prefer not to say</label>
+          </div>
+          <span class="em" id="e-gender"></span>
+        </div>
+
+        <div class="fg">
+          <label for="participation">Participation Type <span class="req">*</span></label>
+          <div class="sw">
+            <select id="participation">
+              <option value="">— Select your role —</option>
+              <option value="Performer">🎭 Performer</option>
+              <option value="Volunteer">🤝 Volunteer</option>
+              <option value="Attendee">🎟️ Attendee</option>
+            </select>
+          </div>
+          <span class="em" id="e-participation"></span>
+        </div>
+
+        <div class="fg">
+          <label for="requests">Special Requests <span class="opt">(optional)</span></label>
+          <textarea id="requests" rows="3" placeholder="Dietary needs, accessibility, performance details…"></textarea>
+        </div>
+
+        <div class="fg">
+          <label class="cbx">
+            <input type="checkbox" id="terms"/>
+            I agree to the <span class="lnk" id="openTerms">Terms &amp; Conditions</span> of the World Mission Cultural Day event.
+          </label>
+          <span class="em" id="e-terms"></span>
+        </div>
+
+        <button type="submit" class="bsub">Register Now 🌐</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ PARTICIPANTS PANEL ═══ -->
+  <section id="panel-participants" class="panel">
+
+    <div class="toolbar">
+      <h2>Registered Participants</h2>
+      <div class="tc">
+        <input type="search" id="searchInput" placeholder="🔍 Search name or country…"/>
+        <div class="sw sm">
+          <select id="filterType">
+            <option value="">All Types</option>
+            <option value="Performer">🎭 Performer</option>
+            <option value="Volunteer">🤝 Volunteer</option>
+            <option value="Attendee">🎟️ Attendee</option>
+          </select>
+        </div>
+        <button class="bexp" id="exportBtn">⬇ Export CSV</button>
+      </div>
+    </div>
+
+    <div class="grid" id="pList"></div>
+    <div class="empty" id="emptyState">
+      <div class="ei">🌏</div>
+      <p>No participants yet — register first!</p>
+    </div>
+
+  </section>
+</main>
+
+<!-- TERMS MODAL -->
+<div class="ov" id="termsOv">
+  <div class="modal">
+    <h3>📜 Terms &amp; Conditions</h3>
+    <div class="mb">
+      <p>By registering for the <strong>World Mission Cultural Day</strong>, you agree to:</p>
+      <ul>
+        <li>Provide accurate and truthful personal information.</li>
+        <li>Respect the cultures and traditions of all participants.</li>
+        <li>Follow all school safety and conduct guidelines during the event.</li>
+        <li>Allow event organizers to use your information for event coordination.</li>
+        <li>Grant permission for event photos/videos to be used in school media.</li>
+      </ul>
+      <p>Your data will not be shared with third parties.</p>
+    </div>
+    <button class="bcl" id="closeTerms">Close</button>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="ov" id="editOv">
+  <div class="modal">
+    <h3>✏️ Edit Registration</h3>
+    <form id="editForm" novalidate>
+      <input type="hidden" id="editId"/>
+      <div class="fg">
+        <label for="editName">Full Name</label>
+        <input type="text" id="editName"/>
+        <span class="em" id="e-editName"></span>
+      </div>
+      <div class="fg">
+        <label for="editCountry">Country / Culture</label>
+        <input type="text" id="editCountry"/>
+      </div>
+      <div class="fg">
+        <label for="editType">Participation Type</label>
+        <div class="sw">
+          <select id="editType">
+            <option value="Performer">🎭 Performer</option>
+            <option value="Volunteer">🤝 Volunteer</option>
+            <option value="Attendee">🎟️ Attendee</option>
+          </select>
+        </div>
+      </div>
+      <div class="ma">
+        <button type="submit" class="bsub sm">Save Changes</button>
+        <button type="button" class="bcl" id="closeEdit">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>🌍 World Mission Cultural Day &nbsp;|&nbsp; Celebrating Every Culture, Every Story</footer>
+
+<script src="javascript.js"></script>
+</body>
+</html>
